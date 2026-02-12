@@ -10,6 +10,7 @@ function initDb() {
       last_name TEXT,
       email TEXT
     )`);
+
   db.exec(`
     CREATE TABLE IF NOT EXISTS posts (
       id INTEGER PRIMARY KEY, 
@@ -20,6 +21,7 @@ function initDb() {
       user_id INTEGER, 
       FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE
     )`);
+
   db.exec(`
     CREATE TABLE IF NOT EXISTS likes (
       user_id INTEGER, 
