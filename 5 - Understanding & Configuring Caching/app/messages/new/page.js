@@ -12,9 +12,10 @@ export default function NewMessagePage() {
     // revalidatePath("/");
     // revalidatePath("/messages");
     // revalidatePath("/somthing")
-    revalidateTag("msg")
+    // revalidateTag("msg")
     redirect('/messages');
   }
+
 
   return (
     <>
