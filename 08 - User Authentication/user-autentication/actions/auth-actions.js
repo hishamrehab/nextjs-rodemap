@@ -1,9 +1,11 @@
 'use server';
 
+import { Lucia } from "lucia";
+
 const { hashUserPassword } = require("@/lib/hash");
 const { createUser } = require("@/lib/user");
 const { redirect } = require("next/navigation");
-const { createAuthSession } = require("@/lib/auth");
+const { createAuthSession, verifyAuth } = require("@/lib/auth");
 
 
 export async function signup(formData) {
@@ -79,4 +81,9 @@ export async function auth(mode , prevState , formData) {
     } else {
         return signup(formData);
     }
+}
+
+export async function logout() {
+    await destroySession();
+    redirect('/');
 }
